@@ -1,12 +1,12 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# python-dash-proj-g14
+# r-dash-proj-g14
 
 Gapminder dashboard project for DSCI 532
 
 ## App Description
 
-The main objective of this project is to build a Python application using Dash, that visualizes key performance indicators of the [Gapminder dataset](https://www.gapminder.org/data/). Users can leverage the dashboard to examine trends exhibited by the socioeconomic metrics of the dataset across countries and/or continents over a specified time range.
+The main objective of this project is to build a R application using Dash, that visualizes key performance indicators of the [Gapminder dataset](https://www.gapminder.org/data/). Users can leverage the dashboard to examine trends exhibited by the socioeconomic metrics of the dataset across countries and/or continents over a specified time range.
 
 The app summarizes crucial information of the Gapminder dataset through illustrative plots that visualize the distribution of the dataset variables. The interface is designed to be interactive to make the app adaptive to the user input.
 
@@ -27,23 +27,23 @@ A basic overview of the dashboard is as follows:
 
 ## Proposed Dashboard Layout
 
-<img src="https://github.com/UBC-MDS/gapminderdash-python-g14/blob/main/dashboard-mockup-v1.jpg?raw=true" alt="Dashboard Mockup V1" width="800"/>
+<img src="https://github.com/UBC-MDS/gapminderdash-r-g14/blob/main/dashboard-mockup-v1.jpg?raw=true" alt="Dashboard Mockup V1" width="800"/>
 
 ## Contributions
 
--   Amir Abbas Shojakhani
+-   Sukhleen Kaur
 -   Luke Collins
--   Sukhleen Kaur.
+-   Amir Abbas Shojakhani
 
-We welcome and recognize all contributions. Please find the guide for contribution in [Contributing document](https://github.com/UBC-MDS/gapminderdash-python-g14/blob/feat-map/CONTRIBUTING.md).
+We welcome and recognize all contributions. Please find the guide for contribution in [Contributing document](https://github.com/UBC-MDS/gapminderdash-r-g14/blob/feat-map/CONTRIBUTING.md).
 
 ## Installation
 
 If you would like to help contribute to the app, you can set up the system as follows:
 
-1.  Download the necessary packages listed in `requirements.txt` using `pip` or `conda`
+1.  Download the necessary packages listed in `init.R`
 
-2.  Clone this repo using [`https://github.com/UBC-MDS/gapminderdash-python-g14`](https://github.com/UBC-MDS/gapminderdash-python-g14.git)
+2.  Clone this repo using [`https://github.com/UBC-MDS/gapminderdash-r-g14`](https://github.com/UBC-MDS/gapminderdash-r-g14)
 
 To run the app locally:
 
@@ -51,10 +51,10 @@ To run the app locally:
 
 2.  In the command line, enter:
 
-```python app.py```
+```Source app.R```
 
 3.  Copy the address printed out after "Dash is running on" to a browser to view the Dash app.
 
 ## License
 
-`python-dash-proj-g14` was created by Amir Abbas Shojakhani, Luke Collins and Sukhleen Kaur. It is licensed under the terms of the MIT license.
+`R-dash-proj-g14` was created by Luke Collins, Sukhleen Kaur and Amir Abbas Shojakhani. It is licensed under the terms of the MIT license.
