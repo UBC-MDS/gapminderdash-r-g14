@@ -67,7 +67,7 @@ app$callback(
   })
 
 
-app |> set_layout(
+app %>% set_layout(
   list(
     dbcContainer(dbcRow(app_header), fluid = TRUE),
     dbcContainer(
@@ -100,4 +100,4 @@ app |> set_layout(
 
 
 # Run the app
-app %>% run_app()
+app$run_server(host = '0.0.0.0')
