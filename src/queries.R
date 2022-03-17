@@ -18,7 +18,7 @@ get_countries <- function(continent_code="All") {
     return(unique(gapminder_data$country))
   }
   else {
-    country_list <- gapminder_data |>
+    country_list <- gapminder_data %>%
       filter(continent == continent_code)
       country_list <- droplevels.factor(unique(country_list$country))
     return (country_list)
@@ -48,11 +48,11 @@ create_countries_list <- function(continent_code="All") {
 
 get_continent_data_filtered_year <- function(sel_year, sel_continent) {
   if (sel_continent == "All") {
-    data <- gapminder_data |>
+    data <- gapminder_data %>%
       filter(year == sel_year)
   }
   else {
-    data <- gapminder_data |>
+    data <- gapminder_data %>%
       filter(year == sel_year & continent == sel_continent)
   }
   return(data)
