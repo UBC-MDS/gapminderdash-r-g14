@@ -113,5 +113,4 @@ app %>% set_layout(
 
 
 # Run the app
-#app$run_server(host = '0.0.0.0')
-app %>% run_app()
+app$run_server(host = '0.0.0.0')
