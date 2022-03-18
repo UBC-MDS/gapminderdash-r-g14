@@ -15,7 +15,7 @@ source(here(dir_path, 'src/component_continent_kpis.R'))
 source(here(dir_path, 'src/component_gdplifeexp.R'))
 
 
-app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
+app <- Dash$new()
 
 # Sync continents and countries in filter
 app$callback(
