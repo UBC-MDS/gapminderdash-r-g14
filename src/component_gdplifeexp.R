@@ -11,7 +11,7 @@ source(here(dir_path, 'src/plotting.R'))
 gdp_lifeexp_card <- dbcCard(
   dbcCardBody(
     list(
-      h4("Life Expectancy vs. GDP", className = "card-title"),
+      h4("Life Expectancy vs GDP", className = "card-title"),
       dccGraph(id="gdp_lifeexp_plot")
     )
   )
