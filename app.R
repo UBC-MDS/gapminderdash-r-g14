@@ -12,6 +12,8 @@ source(here(dir_path, 'src/component_app_header.R'))
 source(here(dir_path, 'src/component_topgdp.R'))
 source(here(dir_path, 'src/component_countries_kpis.R'))
 source(here(dir_path, 'src/component_continent_kpis.R'))
+source(here(dir_path, 'src/component_gdplifeexp.R'))
+
 
 app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
 
@@ -66,6 +68,17 @@ app$callback(
     return(plot_continent_kpis(selected_continent, selected_countries))
   })
 
+#Update GDP vs LifeExp Plot
+app$callback(
+  output('gdp_lifeexp_plot', 'figure'),
+  list(
+    input('continent-selector', 'value'),
+    input('country-selector', 'value')
+    ),
+  function(selected_continent, selected_countries) {
+    return(plot_gdp_lifeexp(selected_continent, selected_countries))
+  })
+
 
 app %>% set_layout(
   list(
@@ -86,7 +99,7 @@ app %>% set_layout(
               list(
                 dbcRow(dbcCol(h1('timeseries_card'), width = 12)),
                 dbcRow(dbcCol(h1(top_gdp_card), width = 12)),
-                dbcRow(dbcCol(h1("gdp_exp_card"), width = 12))
+                dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
               ),
               width = 6
             )
@@ -100,4 +113,5 @@ app %>% set_layout(
 
 
 # Run the app
-app$run_server(host = '0.0.0.0')
+#app$run_server(host = '0.0.0.0')
+app %>% run_app()

@@ -159,3 +159,31 @@ plot_continent_kpis <- function(selected_continent="All",
 
 
 
+plot_gdp_lifeexp <- function(selected_continent="All", 
+                             selected_countries=NULL) {
+  if (selected_continent != "All") {
+    continent_filtered <- gapminder %>% filter(continent == selected_continent)
+  } else {
+    continent_filtered <- gapminder
+  }
+  filtered <- continent_filtered %>% filter(!country %in% selected_countries)
+  countries_data <- continent_filtered %>% filter(country %in% selected_countries)
+  if(nrow(continent_filtered %>% filter(country %in% selected_countries)) == 0) {
+    print('condition 1')
+    plot <- ggplot(filtered, aes(x=lifeExp, y=gdpPercap, alpha=0.2, size = pop)) +
+      geom_point() +
+      theme(legend.position = "none")
+  } else {
+    print(selected_countries)
+    print(selected_continent)
+    print('condition 2')
+    plot <- ggplot() +
+      geom_point(data = filtered,
+                 aes(x=lifeExp, y=gdpPercap, alpha=0.2, size = pop)) +
+      geom_point(data = countries_data,
+                 aes(x=lifeExp, y=gdpPercap, color="red", size = pop)) +
+      theme(legend.position = "none")
+  }
+
+  return(ggplotly(plot))
+}
