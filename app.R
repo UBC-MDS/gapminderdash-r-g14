@@ -2,20 +2,27 @@ library(dash)
 library(dashCoreComponents)
 library(dashBootstrapComponents)
 library(here)
+library(ggplot2)
+library(dashHtmlComponents)
+library(remotes)
+library(readr)
+library(plotly)
+library(gapminder)
+library(rstudioapi)
 
 # path to current work directory
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+dir_path <- dirname(getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, 'src/queries.R'))
-source(here(dir_path, 'src/component_app_header.R'))
-source(here(dir_path, 'src/component_topgdp.R'))
-source(here(dir_path, 'src/component_countries_kpis.R'))
+source(here(dir_path, '/src/queries.R'))
+source(here(dir_path, '/src/component_app_header.R'))
+source(here(dir_path,'/src/component_topgdp.R'))
+source(here(dir_path, '/src/component_countries_kpis.R'))
 source(here(dir_path, 'src/component_continent_kpis.R'))
 source(here(dir_path, 'src/component_gdplifeexp.R'))
 
 
-app <- Dash$new()
+app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
 
 # Sync continents and countries in filter
 app$callback(
@@ -114,3 +121,4 @@ app %>% set_layout(
 
 # Run the app
 app$run_server(host = '0.0.0.0')
+# app %>% run_app()
