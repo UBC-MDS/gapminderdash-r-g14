@@ -8,18 +8,18 @@ library(remotes)
 library(readr)
 library(plotly)
 library(gapminder)
-library(rstudioapi)
+#library(rstudioapi)
 
 # path to current work directory
-dir_path <- dirname(getSourceEditorContext()$path)
+#dir_path <- dirname(getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, '/src/queries.R'))
-source(here(dir_path, '/src/component_app_header.R'))
-source(here(dir_path,'/src/component_topgdp.R'))
-source(here(dir_path, '/src/component_countries_kpis.R'))
-source(here(dir_path, 'src/component_continent_kpis.R'))
-source(here(dir_path, 'src/component_gdplifeexp.R'))
+source(here('src', 'queries.R'))
+source(here('src', 'component_app_header.R'))
+source(here('src', 'component_topgdp.R'))
+source(here('src', 'component_countries_kpis.R'))
+source(here('src', 'component_continent_kpis.R'))
+source(here('src', 'component_gdplifeexp.R'))
 
 
 app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
@@ -120,5 +120,5 @@ app %>% set_layout(
 
 
 # Run the app
-app$run_server(host = '0.0.0.0')
-# app %>% run_app()
+#app$run_server(host = '0.0.0.0')
+app %>% run_app()
