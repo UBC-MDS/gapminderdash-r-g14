@@ -3,10 +3,10 @@ library(dashCoreComponents)
 library(dashBootstrapComponents)
 
 # path to current work directory
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+#dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, 'src/queries.R'))
+source(here('src', 'queries.R'))
 
 app_header <- dbcContainer(
   dbcRow(

@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 83
----
-
 # Contributing
 
 This outlines how to propose a change to the {python-dash-proj-g14} project.
@@ -20,9 +14,9 @@ request, please open up an issue.
 
 If you are reporting a bug, please include:
 
--   Your operating system name and version.
--   Any details about your local setup that might be helpful in troubleshooting.
--   Detailed steps to reproduce the bug.
+- Your operating system name and version.
+- Any details about your local setup that might be helpful in troubleshooting.
+- Detailed steps to reproduce the bug.
 
 ### Fix Bugs
 
@@ -44,12 +38,12 @@ blog posts, articles, and such.
 
 If you are proposing a feature:
 
--   Explain in detail how it would work.
--   Keep the scope as narrow as possible, to make it easier to implement.
--   Remember that this is a volunteer-driven project, and that contributions are
+- Explain in detail how it would work.
+- Keep the scope as narrow as possible, to make it easier to implement.
+- Remember that this is a volunteer-driven project, and that contributions are
     welcome :)
 
-## Get Started!
+## Get Started
 
 Ready to contribute? Here's how to set up `{python-dash-proj-g14}` for local
 development.
@@ -74,9 +68,9 @@ team members before merging to the main branch.
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1.  The pull request should include additional tests if appropriate.
-2.  If the pull request adds functionality, the docs should be updated.
-3.  The pull request should work for all currently supported operating systems and
+1. The pull request should include additional tests if appropriate.
+2. If the pull request adds functionality, the docs should be updated.
+3. The pull request should work for all currently supported operating systems and
     versions of Python.
 
 ## Code of Conduct

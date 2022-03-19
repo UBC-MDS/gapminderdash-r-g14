@@ -1,6 +1,3 @@
-library(gapminder)
-library(tidyverse)
-
 # Set global app variable gapminder_data
 # so that we only need to instantiate this once
 

@@ -2,18 +2,24 @@ library(dash)
 library(dashCoreComponents)
 library(dashBootstrapComponents)
 library(here)
-# path to current work directory
+library(ggplot2)
+library(remotes)
+library(readr)
+library(plotly)
+library(gapminder)
+library(tidyverse)
 
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+# path to current work directory
+#dir_path <- dirname(getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, 'src/queries.R'))
-source(here(dir_path, 'src/component_app_header.R'))
-source(here(dir_path, 'src/component_topgdp.R'))
-source(here(dir_path, 'src/component_countries_kpis.R'))
-source(here(dir_path, 'src/component_continent_kpis.R'))
-source(here(dir_path, 'src/component_gdplifeexp.R'))
-source(here(dir_path, 'src/component_timeseries.R'))
+source(here('src', 'queries.R'))
+source(here('src', 'component_app_header.R'))
+source(here('src', 'component_topgdp.R'))
+source(here('src', 'component_countries_kpis.R'))
+source(here('src', 'component_continent_kpis.R'))
+source(here('src', 'component_gdplifeexp.R'))
+source(here('src', 'component_timeseries.R'))
 
 app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
 
