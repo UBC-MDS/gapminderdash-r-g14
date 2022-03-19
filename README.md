@@ -53,7 +53,9 @@ To run the app locally:
 
 2.  In the command line, enter:
 
-```Source app.R```
+```
+Source app.R
+```
 
 3.  Copy the address printed out after "Dash is running on" to a browser to view the Dash app.
 
