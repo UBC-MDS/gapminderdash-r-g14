@@ -86,16 +86,16 @@ app$callback(
   })
 
 # Update time series plot
-app$callback(
-  output('timeseries_plot', 'figure'),
-  list(input('continent-selector', 'value'),
-       input("country-selector", "value"),
-       input("timeseries-col", "value")),
-  
-  function(selected_continent, selected_countries, timeseries_col) {
-    return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
-  }
-)
+# app$callback(
+#   output('timeseries_plot', 'figure'),
+#   list(input('continent-selector', 'value'),
+#        input("country-selector", "value"),
+#        input("timeseries-col", "value")),
+#   
+#   function(selected_continent, selected_countries, timeseries_col) {
+#     return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
+#   }
+# )
 
 
 app %>% set_layout(
@@ -107,17 +107,17 @@ app %>% set_layout(
           list(
             dbcCol(
               list(
-                dbcRow(dbcCol(h1('map'), width = 12)),
+                #dbcRow(dbcCol(h1('map'), width = 12)),
                 dbcRow(dbcCol(h1(countries_kpi_cards_div), width = 12)),
-                dbcRow(dbcCol(h1(continent_kpi_cards), width = 12))
+                dbcRow(dbcCol(h1(continent_kpi_cards), width = 12)),
+                dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
               ),
               width = 6
             ),
             dbcCol(
               list(
-                dbcRow(dbcCol(h1(timeseries_card), width = 12)),
-                dbcRow(dbcCol(h1(top_gdp_card), width = 12)),
-                dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
+                #dbcRow(dbcCol(h1(timeseries_card), width = 12)),
+                dbcRow(dbcCol(h1(top_gdp_card), width = 12))
               ),
               width = 6
             )

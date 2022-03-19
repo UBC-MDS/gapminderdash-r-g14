@@ -187,12 +187,14 @@ plot_gdp_lifeexp <- function(selected_continent="All",
 
 time_series_plot <- function(df, timeseries_col, all_continents = FALSE) {
   if (all_continents == FALSE) {
+    print('scenario1')
     plot <- ggplot(df) +
       geom_line(aes(x = year, 
                     y = !!sym(timeseries_col),
                     color = country))
   }
   else {
+    print('scenario2')
     plot <- ggplot(df) +
       geom_line(aes(x = year, 
                     y = !!sym(timeseries_col),
@@ -204,16 +206,19 @@ time_series_plot <- function(df, timeseries_col, all_continents = FALSE) {
 
 plot_timeseries_filtered <- function(selected_continent="All", selected_countries=NULL, timeseries_col = "gdpPercap") {
   if (selected_continent == "All") {
+    print('scenario3')
     plot_data <- get_grouped_continent(selected_continent, selected_countries) %>%
       mutate({{timeseries_col}} := mean(!!sym(timeseries_col)),
              year = year)
     
     if (timeseries_col == "gdpPercap") {
+      print('scenario4')
       plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
                                                                        y = "GDP",
                                                                        title = "Average GDP for all continents")
     }
     else {
+      print('scenario5')
       plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
                                                                        y = "Life Expectancy",
                                                                        title = "Average Life Expectancy for all continents")
@@ -221,16 +226,19 @@ plot_timeseries_filtered <- function(selected_continent="All", selected_countrie
   }
   
   else if ((is.null(selected_countries)) | (length(selected_countries) == 0) | (is.null(unlist(selected_countries)))) {
+    print('scenario6')
     plot_data <- get_grouped_continent(selected_continent, selected_countries) %>%
       mutate({{timeseries_col}} := mean(!!sym(timeseries_col))) %>%
       filter(continent == selected_continent)
     
     if (timeseries_col == "gdpPercap") {
+      print('scenario7')
       plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
                                                                        y = "GDP",
                                                                        title = paste0("Average GDP for ", selected_continent))
     }
     else {
+      print('scenario8')
       plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
                                                                        y = "Life Expectancy",
                                                                        title = paste0("Average Life Expectancy for ", selected_continent))
@@ -238,13 +246,16 @@ plot_timeseries_filtered <- function(selected_continent="All", selected_countrie
   }
   
   else {
+    print('scenario9')
     plot_data <- get_grouped_continent(selected_continent, selected_countries)
     if (timeseries_col == "gdpPercap") {
+      print('scenario10')
       plot <- time_series_plot(plot_data, timeseries_col, FALSE) + labs(x = "Year",
                                                                         y = "GDP",
                                                                         title = paste0("GDP for ", paste0(unlist(selected_countries), collapse = ", ")))
     }
     else {
+      print('scenario11')
       plot <- time_series_plot(plot_data, timeseries_col, FALSE) + labs(x = "Year",
                                                                         y = "Life Expectancy",
                                                                         title = paste0("Life Expectancy for ", paste0(unlist(selected_countries), collapse = ", ")))
