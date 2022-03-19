@@ -16,7 +16,7 @@ The dashboard can be of significant use for consumers who wish to identify syste
 
 ## Usage
 
-The deployed version of the app can be found [here](https://gapdash14.herokuapp.com/):
+The deployed version of the app can be found [here](https://gapdash14-r.herokuapp.com/):
 
 A basic overview of the dashboard is as follows:
 
