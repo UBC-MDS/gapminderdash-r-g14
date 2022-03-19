@@ -4,16 +4,25 @@ library(dashBootstrapComponents)
 library(here)
 
 # path to current work directory
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
 
+dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+print(dir_path)
 # load external functions
 source(here(dir_path, 'src/queries.R'))
+print("1")
 source(here(dir_path, 'src/component_app_header.R'))
+print("2")
 source(here(dir_path, 'src/component_topgdp.R'))
+print("3")
 source(here(dir_path, 'src/component_countries_kpis.R'))
+print("4")
 source(here(dir_path, 'src/component_continent_kpis.R'))
+print("5")
 source(here(dir_path, 'src/component_gdplifeexp.R'))
+print("6")
+source(here(dir_path, 'src/component_timeseries.R'))
 
+print("all imports done")
 
 app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
 
@@ -79,6 +88,18 @@ app$callback(
     return(plot_gdp_lifeexp(selected_continent, selected_countries))
   })
 
+# Update time series plot
+app$callback(
+  output('timeseries_plot', 'figure'),
+  list(input('continent-selector', 'value'),
+       input("country-selector", "value"),
+       input("timeseries-col", "value")),
+  
+  function(selected_continent, selected_countries, timeseries_col) {
+    return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
+  }
+)
+
 
 app %>% set_layout(
   list(
@@ -97,7 +118,7 @@ app %>% set_layout(
             ),
             dbcCol(
               list(
-                dbcRow(dbcCol(h1('timeseries_card'), width = 12)),
+                dbcRow(dbcCol(h1(timeseries_card), width = 12)),
                 dbcRow(dbcCol(h1(top_gdp_card), width = 12)),
                 dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
               ),

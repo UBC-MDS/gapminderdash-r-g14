@@ -58,3 +58,16 @@ get_continent_data_filtered_year <- function(sel_year, sel_continent) {
   return(data)
 }
 
+get_grouped_continent <- function(selected_continent=NULL, selected_countries=NULL) {
+  if ((is.null(selected_countries)) | (length(selected_countries) == 0) | (is.null(unlist(selected_countries)))) {
+    plot_data <- gapminder_data %>%
+      group_by(continent, year)
+  }
+  else {
+    plot_data <- gapminder_data %>%
+      filter(continent == selected_continent & country %in% selected_countries)
+  }
+  
+  return(plot_data)
+}
+
