@@ -86,16 +86,16 @@ app$callback(
   })
 
 # Update time series plot
-# app$callback(
-#   output('timeseries_plot', 'figure'),
-#   list(input('continent-selector', 'value'),
-#        input("country-selector", "value"),
-#        input("timeseries-col", "value")),
-#   
-#   function(selected_continent, selected_countries, timeseries_col) {
-#     return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
-#   }
-# )
+app$callback(
+  output('timeseries_plot', 'figure'),
+  list(input('continent-selector', 'value'),
+       input("country-selector", "value"),
+       input("timeseries-col", "value")),
+
+  function(selected_continent, selected_countries, timeseries_col) {
+    return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
+  }
+)
 
 
 app %>% set_layout(
@@ -116,7 +116,7 @@ app %>% set_layout(
             ),
             dbcCol(
               list(
-                #dbcRow(dbcCol(h1(timeseries_card), width = 12)),
+                dbcRow(dbcCol(h1(timeseries_card), width = 12)),
                 dbcRow(dbcCol(h1(top_gdp_card), width = 12))
               ),
               width = 6
