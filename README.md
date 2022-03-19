@@ -2,7 +2,9 @@
 
 # r-dash-proj-g14
 
-Gapminder dashboard project for DSCI 532
+Welcome to our Gapminder dashboard project for DSCI 532!
+
+The deployed version of the app can be found [here](https://gapdash14-r.herokuapp.com/)
 
 ## App Description
 
@@ -16,8 +18,6 @@ The dashboard can be of significant use for consumers who wish to identify syste
 
 ## Usage
 
-The deployed version of the app can be found [here](https://gapdash14-r.herokuapp.com/):
-
 A basic overview of the dashboard is as follows:
 
 -   The app can be run from the terminal as described in the installation section
@@ -25,11 +25,13 @@ A basic overview of the dashboard is as follows:
 -   Select the desired continent and/or countries to analyze their performance in terms of key performance indicators (GDP, life expectancy and population)
 -   The time series plot also lets the user select the metric (GDP or life expectancy) to review trends exhibited by those measures across the years based on the input selection.
 
-## Proposed Dashboard Layout
+## Dashboard Layout
 
-<img src="https://github.com/UBC-MDS/gapminderdash-r-g14/blob/main/dashboard-mockup-v1.jpg?raw=true" alt="Dashboard Mockup V1" width="800"/>
+<img src="https://github.com/UBC-MDS/gapminderdash-r-g14/blob/main/dashboard_sketch.png" width="1000"/>
 
 ## Contributions
+
+Contributors:
 
 -   Sukhleen Kaur
 -   Luke Collins
