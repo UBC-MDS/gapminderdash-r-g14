@@ -183,3 +183,74 @@ plot_gdp_lifeexp <- function(selected_continent="All",
 
   return(ggplotly(plot))
 }
+
+
+time_series_plot <- function(df, timeseries_col, all_continents = FALSE) {
+  if (all_continents == FALSE) {
+    plot <- ggplot(df) +
+      geom_line(aes(x = year, 
+                    y = !!sym(timeseries_col),
+                    color = country))
+  }
+  else {
+    plot <- ggplot(df) +
+      geom_line(aes(x = year, 
+                    y = !!sym(timeseries_col),
+                    color = continent))
+  }
+  
+  return(plot)
+}
+
+plot_timeseries_filtered <- function(selected_continent="All", selected_countries=NULL, timeseries_col = "gdpPercap") {
+  if (selected_continent == "All") {
+    plot_data <- get_grouped_continent(selected_continent, selected_countries) %>%
+      mutate({{timeseries_col}} := mean(!!sym(timeseries_col)),
+             year = year)
+    
+    if (timeseries_col == "gdpPercap") {
+      plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
+                                                                       y = "GDP",
+                                                                       title = "Average GDP for all continents")
+    }
+    else {
+      plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
+                                                                       y = "Life Expectancy",
+                                                                       title = "Average Life Expectancy for all continents")
+    }
+  }
+  
+  else if ((is.null(selected_countries)) | (length(selected_countries) == 0) | (is.null(unlist(selected_countries)))) {
+    plot_data <- get_grouped_continent(selected_continent, selected_countries) %>%
+      mutate({{timeseries_col}} := mean(!!sym(timeseries_col))) %>%
+      filter(continent == selected_continent)
+    
+    if (timeseries_col == "gdpPercap") {
+      plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
+                                                                       y = "GDP",
+                                                                       title = paste0("Average GDP for ", selected_continent))
+    }
+    else {
+      plot <- time_series_plot(plot_data, timeseries_col, TRUE) + labs(x = "Year",
+                                                                       y = "Life Expectancy",
+                                                                       title = paste0("Average Life Expectancy for ", selected_continent))
+    }
+  }
+  
+  else {
+    plot_data <- get_grouped_continent(selected_continent, selected_countries)
+    if (timeseries_col == "gdpPercap") {
+      plot <- time_series_plot(plot_data, timeseries_col, FALSE) + labs(x = "Year",
+                                                                        y = "GDP",
+                                                                        title = paste0("GDP for ", paste0(unlist(selected_countries), collapse = ", ")))
+    }
+    else {
+      plot <- time_series_plot(plot_data, timeseries_col, FALSE) + labs(x = "Year",
+                                                                        y = "Life Expectancy",
+                                                                        title = paste0("Life Expectancy for ", paste0(unlist(selected_countries), collapse = ", ")))
+    }
+  }
+  
+  ggplotly(plot, width = 600, height = 400)
+}
+

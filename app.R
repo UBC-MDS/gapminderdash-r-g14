@@ -19,7 +19,7 @@ source(here('src', 'component_topgdp.R'))
 source(here('src', 'component_countries_kpis.R'))
 source(here('src', 'component_continent_kpis.R'))
 source(here('src', 'component_gdplifeexp.R'))
-
+source(here('src', 'component_timeseries.R'))
 
 app <- Dash$new(external_stylesheets = dbcThemes$BOOTSTRAP)
 
@@ -85,6 +85,18 @@ app$callback(
     return(plot_gdp_lifeexp(selected_continent, selected_countries))
   })
 
+# Update time series plot
+app$callback(
+  output('timeseries_plot', 'figure'),
+  list(input('continent-selector', 'value'),
+       input("country-selector", "value"),
+       input("timeseries-col", "value")),
+  
+  function(selected_continent, selected_countries, timeseries_col) {
+    return(plot_timeseries_filtered(selected_continent, selected_countries, timeseries_col))
+  }
+)
+
 
 app %>% set_layout(
   list(
@@ -103,7 +115,7 @@ app %>% set_layout(
             ),
             dbcCol(
               list(
-                dbcRow(dbcCol(h1('timeseries_card'), width = 12)),
+                dbcRow(dbcCol(h1(timeseries_card), width = 12)),
                 dbcRow(dbcCol(h1(top_gdp_card), width = 12)),
                 dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
               ),
