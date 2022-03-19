@@ -10,6 +10,7 @@ timeseries_card <- list(
                 dccTabs(
                     id = "timeseries-col",
                     value = "gdpPercap",
+                    style = list("font-size" = "50%"),
                     children = list(
                         dccTab(
                             label = "GDP",

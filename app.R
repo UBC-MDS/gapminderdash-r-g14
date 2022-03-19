@@ -118,7 +118,7 @@ app %>% set_layout(
             ),
             dbcCol(
               list(
-                dbcRow(dbcCol(h1(timeseries_card), width = 12)),
+                dbcRow(dbcCol(h1(timeseries_card))),
                 dbcRow(dbcCol(h1(top_gdp_card), width = 12)),
                 dbcRow(dbcCol(h1(gdp_lifeexp_card), width = 12))
               ),
