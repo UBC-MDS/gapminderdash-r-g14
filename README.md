@@ -37,7 +37,7 @@ Contributors:
 -   Luke Collins
 -   Amir Abbas Shojakhani
 
-We welcome and recognize all contributions. Please find the guide for contribution in [Contributing document](https://github.com/UBC-MDS/gapminderdash-r-g14/blob/feat-map/CONTRIBUTING.md).
+We welcome and recognize all contributions. Please find the guide for contribution in [Contributing document](https://github.com/UBC-MDS/gapminderdash-r-g14/blob/main/CONTRIBUTING.md).
 
 ## Installation
 
