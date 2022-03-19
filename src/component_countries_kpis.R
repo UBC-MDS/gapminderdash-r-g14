@@ -3,10 +3,10 @@ library(dashCoreComponents)
 library(dashBootstrapComponents)
 
 # path to current work directory
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+#dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, 'src/plotting.R'))
+source(here('src', 'plotting.R'))
 
 countries_kpi_type_div <- dbcRadioItems(
   id="country-kpi-type",

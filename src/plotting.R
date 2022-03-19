@@ -1,12 +1,12 @@
 library(ggplot2)
 library(plotly)
-library(tidyverse)
+#library(tidyverse)
 
 # path to current work directory
-dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+#dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
 
 # load external functions
-source(here(dir_path, 'src/queries.R'))
+source(here('src', 'queries.R'))
 
 plot_topGdp <-  function(selected_continent="All", selected_countries=NULL) {
   plot_data <- get_continent_data_filtered_year(2007, selected_continent) %>%
@@ -173,8 +173,6 @@ plot_gdp_lifeexp <- function(selected_continent="All",
       geom_point() +
       theme(legend.position = "none")
   } else {
-    print(selected_countries)
-    print(selected_continent)
     plot <- ggplot() +
       geom_point(data = filtered,
                  aes(x=lifeExp, y=gdpPercap, alpha=0.2, size = pop)) +

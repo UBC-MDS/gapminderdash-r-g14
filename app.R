@@ -3,12 +3,11 @@ library(dashCoreComponents)
 library(dashBootstrapComponents)
 library(here)
 library(ggplot2)
-library(dashHtmlComponents)
 library(remotes)
 library(readr)
 library(plotly)
 library(gapminder)
-#library(rstudioapi)
+library(tidyverse)
 
 # path to current work directory
 #dir_path <- dirname(getSourceEditorContext()$path)
@@ -120,5 +119,5 @@ app %>% set_layout(
 
 
 # Run the app
-app$run_server(host = '0.0.0.0')
-#app %>% run_app()
+#app$run_server(host = '0.0.0.0')
+app %>% run_app()
