@@ -2,6 +2,11 @@ library(dash)
 library(dashCoreComponents)
 library(dashBootstrapComponents)
 
+# path to current work directory
+dir_path <- dirname(rstudioapi::getSourceEditorContext()$path)
+
+# load external functions
+source(here(dir_path, 'src/plotting.R'))
 
 timeseries_card <- list(
     dbcRow(list(
